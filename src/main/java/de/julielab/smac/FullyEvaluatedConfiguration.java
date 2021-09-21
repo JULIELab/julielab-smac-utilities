@@ -14,6 +14,12 @@ public class FullyEvaluatedConfiguration extends ArrayList<SmacLiveRundataEntry>
         }
     }
 
+    public SmacParameterConfiguration getConfiguration() {
+        if (!isEmpty())
+            return get(0).getRunInfo().getConfiguration();
+        return null;
+    }
+
     public double getAvgQuality() {
         if (avgQuality == Double.MAX_VALUE)
             throw new IllegalStateException("The average quality has not yet been calculated. Call 'calculateAvgQuality' first.");
